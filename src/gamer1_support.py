@@ -20,7 +20,10 @@ users.append(guestrec)
 users.append(johnrec)
 users.append(maryrec)  
 
-currentuser = "guest"               
+currentuser = "guest"
+currentusertype = "casual"
+currentspendingrange = "50"
+currentplatformtype = "*"
 
 try:
     import Tkinter as tk
@@ -54,6 +57,7 @@ def open_profile():
 import query
 
 def open_query():
+    global currentusertype, currentpsendingrange, currentplatformtype, currentuser
     print('gamer1_support.open_query')
     sys.stdout.flush()
     currentuser = username.get()
@@ -62,17 +66,28 @@ def open_query():
             currentRec = i
             break
     print(currentuser)
-    sys.stdout.flush()       
-            
-            
-    
-    
+    currentusertype = i.get("usertype")
+    currentspendingrange = i.get("spendingrange")
+    currentplatformtype = i.get("platformtype")
+
+    print(currentuser + " " + currentplatformtype)
+    sys.stdout.flush()
     query.create_query(root)
 
 def open_query_guest():
     print('gamer1_support.open_query_guest')
     sys.stdout.flush()
-    query.create_query(root)   
+    currentuser = "guest"
+    for i in users:
+        if (i.get("username") == currentuser):
+            currentRec = i
+            break
+    print(currentuser)
+    currentusertype = i.get("usertype")
+    currentspendingrange = i.get("spendingrange")
+    currentplatformtype = i.get("platformtype")
+    sys.stdout.flush()
+    query.create_query(root)
     
 
 def destroy_window():

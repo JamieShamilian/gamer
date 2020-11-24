@@ -6,6 +6,7 @@
 #    Nov 23, 2020 02:12:29 PM EST  platform: Windows NT
 
 import sys
+import gamer1_support
 
 try:
     import Tkinter as tk
@@ -34,6 +35,14 @@ def init(top, gui, *args, **kwargs):
     w = gui
     top_level = top
     root = top
+    daterange.set("*")
+    spend = gamer1_support.currentspendingrange
+    costrange.set(spend)
+    platform = gamer1_support.currentplatformtype
+    gameplatform.set(platform)
+    print('query_support init ')
+    print(platform)
+    gametype.set("*")
 
 def start_query():
     print('query_support.start_query')

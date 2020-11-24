@@ -1,0 +1,62 @@
+
+
+Gamer project evaluations 
+
+Team
+Jamie Shamilian
+Pratim Patel
+Ryan McCauley
+
+
+Personas  - develope john's persona
+
+Protoyping 
+
+P A R - 
+
+Perception - grouping of class of pulldown selection categories together.
+Don't mix, genre with publishing dates since they are quite different
+categories.
+Attention - Highlighting the platform (PC/xbox/ps4/switch) selection first,
+since this guides the rest of the selections
+Retention - use of pull down selection so the user does not have to
+remember the categories they are allowed to choose from.
+
+Law of Simplicity 
+reduce *** do not give to user too many choices
+organize *** keep similar items together on a screen 
+time *** minimize time to return user with partial results. allow guest use without username
+learn **** 
+differences
+context
+emotion
+trust
+failure
+the one
+
+Targeted Solution
+
+Design iterations
+
+Accessibility
+	-- keep choices simple to be done by point a click, rather than free typing
+	-- allow high contrast options rather than shades of grey
+
+Error Considerations
+	--- return errors on the screen they occur.
+	
+Heuristic evaluations
+
+Evaluation of success in protype
+
+Presentation
+
+Working protype
+
+Tidwell patterns
+
+micro-interactions
+
+video presentation
+
+

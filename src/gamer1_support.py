@@ -8,13 +8,19 @@
 
 import sys
 
+guestrec = {  "username" : "guest", "usertype" : "casual", "spendingrange" : "20", "platformtype" : "*" }
+
 johnrec = {  "username" : "john", "usertype" : "casual", "spendingrange" : "20", "platformtype" : "Xbox" }
                 
 maryrec = {  "username" : "mary", "usertype" : "hardcore", "spendingrange" : "50", "platformtype" : "Sony" }
          
-                
-users[0] = johnrec
-users[1] = maryrec                 
+
+users = [ ]   
+users.append(guestrec)            
+users.append(johnrec)
+users.append(maryrec)  
+
+currentuser = "guest"               
 
 try:
     import Tkinter as tk
@@ -50,6 +56,17 @@ import query
 def open_query():
     print('gamer1_support.open_query')
     sys.stdout.flush()
+    currentuser = username.get()
+    for i in users :
+        if ( i.get("username") == currentuser ):
+            currentRec = i
+            break
+    print(currentuser)
+    sys.stdout.flush()       
+            
+            
+    
+    
     query.create_query(root)
 
 def open_query_guest():

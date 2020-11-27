@@ -62,6 +62,14 @@ def open_query():
     gamer1_support.users.append(addrec)
 
     query.create_query(root)
+    hide_window()
+    
+    
+def hide_window():
+    # Function which closes the window.
+    global top_level
+    top_level.withdraw()
+    
 
 def destroy_window():
     # Function which closes the window.

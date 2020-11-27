@@ -53,6 +53,7 @@ def open_profile():
     print('gamer1_support.open_profile')
     sys.stdout.flush()
     profile.create_profile(root)
+    hide_window()
     
 import query
 
@@ -73,6 +74,7 @@ def open_query():
     print(currentuser + " " + currentplatformtype)
     sys.stdout.flush()
     query.create_query(root)
+    hide_window()
 
 def open_query_guest():
     print('gamer1_support.open_query_guest')
@@ -88,6 +90,13 @@ def open_query_guest():
     currentplatformtype = i.get("platformtype")
     sys.stdout.flush()
     query.create_query(root)
+    hide_window()
+    
+    
+def hide_window():
+    # Function which closes the window.
+    global top_level
+    top_level.withdraw()
     
 
 def destroy_window():

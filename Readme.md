@@ -17,4 +17,7 @@ page
 http://page.sourceforge.net/
 
 
-github 
+info - slide deck
+
+docs/GamerSelect.pptx
+

@@ -16,6 +16,11 @@ page
 
 http://page.sourceforge.net/
 
+IGDB api-db
+
+https://pypi.org/project/igdb-api-v4/
+
+
 
 info - slide deck
 

@@ -8,6 +8,11 @@
 #    Nov 27, 2020 10:59:36 AM EST  platform: Windows NT
 
 import sys
+
+import requests
+import json
+import csv
+
 import gamer1_support
 
 try:
@@ -49,12 +54,53 @@ def init(top, gui, *args, **kwargs):
     print(platform+spend)
     gametype.set("*")
 
+# use postman access token good for 60 days
+#https://id.twitch.tv/oauth2/token?client_id=abcdefg12345&client_secret=hijklmn67890&grant_type=client_credentials
 
 game1list = "game1\ngame2\ngame3\ngame1\ngame2\ngame3\ngame1\ngame2\ngame3\ngame1\ngame2\ngame3\n"
+
+from igdb.wrapper import IGDBWrapper
+from igdb.igdbapi_pb2 import GameResult
+
 def start_query():
     print('query_support.start_query')
     gamelist.set(game1list)
     sys.stdout.flush()
+    platform = gameplatform.get()
+    if platform == 'Xbox':
+        platformnum = 49
+    if platform == 'Sony':
+        platformnum = 48
+    if platform == 'Switch':
+        platformnum = 130
+    if platform == 'Phone':
+        platformnum = 34
+    if platform == 'PC':
+        platformnum = 6   
+        
+    if platform == "*":
+        query = "fields name; limit 30; "
+    else:
+        query = "fields name; where platforms = " + str(platformnum) + "; limit 30; "
+    
+    
+    #
+    # 48 - PS4, 49 - Xbox one, 130 - switch, 34 - android , 39 - ios , windows - 6
+    #
+    # token good for 60 days.
+    wrapper = IGDBWrapper("ab149we1sss225z73u22uknald6tkx","oeliv17vvkt778iesj0n7m3kvo807t")
+    byte_array = wrapper.api_request(
+            'games',
+            query
+            )
+    print(byte_array);
+    #games_message = GameResult()
+    #
+    #   bug in google protobuf code/config
+    #  
+    #games_message.ParseFromString(byte_array) # Fills the protobuf message object with the response
+
+    
 
 def stop_query():
     print('query_support.stop_query')

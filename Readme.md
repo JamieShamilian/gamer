@@ -25,6 +25,19 @@ https://pypi.org/project/igdb-api-v4/
 info - slide deck
 
 doc/GamerSelect.pptx
+
 doc/GamerSelect.pdf
 
+
+demos
+
+images/newuser2.mp4
+
+images/existinguser2.mp4
+
+images/guest2.mp4
+
+images/errormessages2.mp4
+
+images/cancel.mp4
 

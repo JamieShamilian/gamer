@@ -5,6 +5,7 @@
 #  in conjunction with Tcl version 8.6
 #    Nov 23, 2020 01:34:58 PM EST  platform: Windows NT
 #    Nov 24, 2020 02:33:33 PM EST  platform: Windows NT
+#    Dec 02, 2020 08:16:32 PM EST  platform: Windows NT
 
 import sys
 import gamer1_support
@@ -22,6 +23,8 @@ except ImportError:
     py3 = True
 
 def set_Tk_var():
+    global username
+    username = tk.StringVar()
     global profilename
     profilename = tk.StringVar()
     global usertype
@@ -42,28 +45,33 @@ import query
 def open_query():
     print('profile_support.open_query')
     sys.stdout.flush()
-#    currentuser = username.get()
+    currentuser = username.get()
     for i in gamer1_support.users:
-        if i.get("username") == gamer1_support.currentuser:
+        print ( i.get("username") )
+        if i.get("username") == currentuser :
+            print(currentuser)
             currentRec = i
             break
-    print(gamer1_support.currentuser)
-
-    currentusertype = usertype.get()
-    currentspendingrange = spendingrange.get() #i.get("spendingrange")
-    currentplatformtype = platformtype.get()  #i.get("platformtype")
-
-    addrec = { "username": profilename, "usertype" : usertype, "spendingrange": spendingrange, "platformtype" : platformtype }
-
-    gamer1_support.currentuser = profilename
-    gamer1_support.currentspendingrange = currentspendingrange
-    gamer1_support.currentplatformtype = currentplatformtype
-
-    gamer1_support.users.append(addrec)
-
-    query.create_query(root)
-    hide_window()
-    
+    try:
+        currentRec
+    except NameError:
+        print("New name")
+        gamer1_support.currentuser = currentuser
+        print(gamer1_support.currentuser)
+        currentusertype = usertype.get()
+        currentspendingrange = spendingrange.get() #i.get("spendingrange")
+        currentplatformtype = platformtype.get()  #i.get("platformtype")
+        addrec = { "username": profilename, "usertype" : usertype, "spendingrange": spendingrange, "platformtype" : platformtype }
+        gamer1_support.currentuser = profilename
+        gamer1_support.currentspendingrange = currentspendingrange
+        gamer1_support.currentplatformtype = currentplatformtype
+        gamer1_support.users.append(addrec)
+        w.Label6.config(text='''Type new username''')
+        query.create_query(root)
+        hide_window()
+    else:
+        print("name error")
+        w.Label6.config(text='''name not available''')
     
 def hide_window():
     # Function which closes the window.

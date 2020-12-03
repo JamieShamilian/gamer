@@ -51,6 +51,7 @@ import profile
 
 def open_profile():
     print('gamer1_support.open_profile')
+    w.Label2.config (text='''choose a login option''')
     sys.stdout.flush()
     profile.create_profile(root)
     hide_window()
@@ -58,7 +59,7 @@ def open_profile():
 import query
 
 def open_query():
-    global currentusertype, currentpsendingrange, currentplatformtype, currentuser
+    global currentusertype, currentpsendingrange, currentplatformtype, currentuser, top_level, w
     print('gamer1_support.open_query')
     sys.stdout.flush()
     currentuser = username.get()
@@ -66,15 +67,22 @@ def open_query():
         if ( i.get("username") == currentuser ):
             currentRec = i
             break
-    print(currentuser)
-    currentusertype = i.get("usertype")
-    currentspendingrange = i.get("spendingrange")
-    currentplatformtype = i.get("platformtype")
+    try:
+        currentRec
+    except NameError:
+        w.Label2.config (text='''user not found''')
+    else:
+        print(currentuser)
+        currentusertype = i.get("usertype")
+        currentspendingrange = i.get("spendingrange")
+        currentplatformtype = i.get("platformtype")
+        print(currentuser + " " + currentplatformtype)
+        w.Label2.config (text='''choose a login option''')
+        sys.stdout.flush()
+        query.create_query(root)
+        hide_window()
 
-    print(currentuser + " " + currentplatformtype)
-    sys.stdout.flush()
-    query.create_query(root)
-    hide_window()
+
 
 def open_query_guest():
     print('gamer1_support.open_query_guest')
@@ -88,15 +96,22 @@ def open_query_guest():
     currentusertype = i.get("usertype")
     currentspendingrange = i.get("spendingrange")
     currentplatformtype = i.get("platformtype")
+    w.Label2.config (text='''choose a login option''')
     sys.stdout.flush()
     query.create_query(root)
     hide_window()
-    
-    
+
 def hide_window():
     # Function which closes the window.
     global top_level
     top_level.withdraw()
+    
+    
+def show_window():
+    # Function which closes the window.
+    global top_level
+    top_level.deiconify()
+    
     
 
 def destroy_window():

@@ -57,15 +57,20 @@ def init(top, gui, *args, **kwargs):
 # use postman access token good for 60 days
 #https://id.twitch.tv/oauth2/token?client_id=abcdefg12345&client_secret=hijklmn67890&grant_type=client_credentials
 
-game1list = "game1\ngame2\ngame3\ngame1\ngame2\ngame3\ngame1\ngame2\ngame3\ngame1\ngame2\ngame3\n"
+game1list = "game1 2\rgame2 g22\rgame3\ngame1\ngame2\ngame3\ngame1\ngame2\ngame3\ngame1\ngame2\ngame3\n"
 
 from igdb.wrapper import IGDBWrapper
 from igdb.igdbapi_pb2 import GameResult
 
 def start_query():
-    print('query_support.start_query')
-    gamelist.set(game1list)
+    #print('query_support.start_query')
+    
+    gamelist.set("")
+    
     sys.stdout.flush()
+    
+    limit = 30
+    
     platform = gameplatform.get()
     if platform == 'Xbox':
         platformnum = 49
@@ -81,7 +86,7 @@ def start_query():
     if platform == "*":
         query = "fields name; limit 30; "
     else:
-        query = "fields name; where platforms = " + str(platformnum) + "; limit 30; "
+        query = "fields name; where platforms = " + str(platformnum) + "; limit "+ str(limit) + "; "
     
     
     #
@@ -93,7 +98,21 @@ def start_query():
             'games',
             query
             )
-    print(byte_array);
+    #print(type(byte_array))
+    #print(byte_array)
+    jdata = json.loads(byte_array)
+        
+    #rtnlist = ""
+    #for i in range(0,limit) :
+    #    rtnlist += ( jdata[i]['name'] +"\n" ) 
+    #print (rtnlist)
+        
+    for i in range(0,limit) :
+        w.Scrolledlistbox1.insert(i+1,jdata[i]['name'])
+   
+    #data = json.dumps(jdata)
+    #print(type(data))
+    #print(data)
     #games_message = GameResult()
     #
     #   bug in google protobuf code/config
@@ -103,7 +122,11 @@ def start_query():
     
 
 def stop_query():
+    global top_level
     print('query_support.stop_query')
+    #top_level.deiconify()
+    gamer1_support.show_window()
+    hide_window()
     sys.stdout.flush()
 
 def hide_window():

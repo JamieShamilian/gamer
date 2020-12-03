@@ -21,7 +21,15 @@ IGDB api-db
 https://pypi.org/project/igdb-api-v4/
 
 
+Project
+
 https://github.com/JamieShamilian/gamer
+
+
+src
+
+https://github.com/JamieShamilian/gamer/tree/main/src
+
 
 
 info - slide deck

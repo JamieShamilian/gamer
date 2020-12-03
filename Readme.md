@@ -31,6 +31,7 @@ src
 https://github.com/JamieShamilian/gamer/tree/main/src
 
 
+documenation in docs folder
 
 info - slide deck
 
@@ -39,7 +40,9 @@ doc/GamerSelect.pptx  ( with notes )
 doc/GamerSelect.pdf ( without notes )
 
 
-demos
+images in images folder
+
+demos / image captures
 
 images/newuser2.mp4
 

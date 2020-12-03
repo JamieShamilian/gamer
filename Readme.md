@@ -24,9 +24,9 @@ https://pypi.org/project/igdb-api-v4/
 
 info - slide deck
 
-doc/GamerSelect.pptx
+doc/GamerSelect.pptx  ( with notes )
 
-doc/GamerSelect.pdf
+doc/GamerSelect.pdf ( without notes )
 
 
 demos

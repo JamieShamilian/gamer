@@ -33,24 +33,24 @@ https://github.com/JamieShamilian/gamer/tree/main/src
 
 documenation in docs folder
 
-info - slide deck
+  info - slide deck
 
-doc/GamerSelect.pptx  ( with notes )
+    doc/GamerSelect.pptx  ( with notes )
 
-doc/GamerSelect.pdf ( without notes )
+    doc/GamerSelect.pdf ( without notes )
 
 
 images in images folder
 
-demos / image captures
+  demo videos / image captures
 
-images/newuser2.mp4
+    images/newuser2.mp4
 
-images/existinguser2.mp4
+    images/existinguser2.mp4
 
-images/guest2.mp4
+    images/guest2.mp4
 
-images/errormessages2.mp4
+    images/errormessages2.mp4
 
-images/cancel.mp4
+    images/cancel.mp4
 
